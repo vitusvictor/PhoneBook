@@ -12,7 +12,7 @@ public class PhoneBook implements ISaveAndRetrieveContact{
 
     @Override
     public void saveContact(ArrayList<String> newContact) {
-        // validation for name
+        // validate for name
         for (Contact i : this.phoneBook) {
             if (Objects.equals(newContact.get(0), i.getName())) {
                 System.out.println("Name already exists! Use another name.");
@@ -20,13 +20,13 @@ public class PhoneBook implements ISaveAndRetrieveContact{
             }
         }
 
-        // validation for length of number
+        // validate for length of number
         if (newContact.get(1).length() != 11){
             System.out.println("Invalid number! Enter a valid number.");
             return;
         }
 
-
+        // confirm that all digits are valid digits
         try {
             Long.parseLong(newContact.get(1));
         } catch (Exception e) {
@@ -34,6 +34,7 @@ public class PhoneBook implements ISaveAndRetrieveContact{
             return;
         }
 
+        // add to phonebook
         Contact contact = new Contact(newContact.get(0), newContact.get(1));
         phoneBook.add(contact);
         System.out.println("Contact added successfully!");
