@@ -26,6 +26,14 @@ public class PhoneBook implements ISaveAndRetrieveContact{
             return;
         }
 
+
+        try {
+            Long.parseLong(newContact.get(1));
+        } catch (Exception e) {
+            System.out.println("Enter valid digits");
+            return;
+        }
+
         Contact contact = new Contact(newContact.get(0), newContact.get(1));
         phoneBook.add(contact);
         System.out.println("Contact added successfully!");
