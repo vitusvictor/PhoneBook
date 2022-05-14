@@ -1,5 +1,5 @@
 public class Contact{
-//    private String phoneBookOwner;
+
     private final String name;
     private final String number;
 
